@@ -1,0 +1,18 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 2px solid #eb302d;
+}
+
+li{
+    display: inline-block;
+    margin: 15px;
+    cursor: pointer;
+}
+
+li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
