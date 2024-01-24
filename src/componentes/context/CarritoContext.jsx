@@ -1,8 +1,5 @@
-//1) Importo useState y createContext que me permite crear un contexto que almacenará toda la logica de mi carrito de compras
 
 import { useState, createContext } from "react";
-
-//2) Creamos el context:
 
 export const CarritoContext = createContext({
     carrito: [],
@@ -10,45 +7,37 @@ export const CarritoContext = createContext({
     cantidadTotal: 0
 })
 
-//El valor inicial es un objeto, con la propiedad carrito, que es un array vacio, el total de la compra, y la cantidad total de productos.
+export const CarritoProvider = ({ children }) => {
 
-export const CarritoProvider = ({children}) => {
-    //Creamos los estados:
     const [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
     const [cantidadTotal, setCantidadTotal] = useState(0);
 
-    //Verificamos por consola: (borrar al final)
 
     console.log(carrito);
     console.log("Cantidad Items: ", cantidadTotal);
     console.log("Precio total de la compra: ", total);
-    ////////////////////////////////////////////////
-
-    //Agregamos algunas funciones para la logica del carrito:
 
     const agregarAlCarrito = (item, cantidad) => {
         const productosExistentes = carrito.find(prod => prod.item.id === item.id);
-        if(!productosExistentes) {
-            setCarrito(prev => [...prev, {item, cantidad}]);
-            setCantidadTotal(prev => prev +cantidad);
+        if (!productosExistentes) {
+            setCarrito(prev => [...prev, { item, cantidad }]);
+            setCantidadTotal(prev => prev + cantidad);
             setTotal(prev => prev + (item.precio * cantidad));
-            //La sintaxis: prev => [...prev, {item, cantidad}] se utiliza para crear un nuevo array a partir del estado anterior del carrito y agregar un nuevo objeto que representa el producto agregado.
-        }else {
-            const carritoActualizado = carrito.map( prod => {
-                if(prod.item.id === item.id) {
-                    return {...prod, cantidad: prod.cantidad + cantidad};
-                }else {
+        } else {
+            const carritoActualizado = carrito.map(prod => {
+                if (prod.item.id === item.id) {
+                    return { ...prod, cantidad: prod.cantidad + cantidad };
+                } else {
                     return prod;
                 }
             })
             setCarrito(carritoActualizado);
-            setCantidadTotal(prev => prev +cantidad);
+            setCantidadTotal(prev => prev + cantidad);
             setTotal(prev => prev + (item.precio * cantidad));
         }
     }
 
-    //Funcion para eliminar un producto
 
     const eliminarProducto = (id) => {
         const productoEliminado = carrito.find(prod => prod.item.id === id);
@@ -59,7 +48,6 @@ export const CarritoProvider = ({children}) => {
         setTotal(prev => prev - (productoEliminado.item.precio * productoEliminado.cantidad));
     }
 
-    //Funcion para vaciar el carrito:
 
     const vaciarCarrito = () => {
         setCarrito([]);
@@ -68,10 +56,9 @@ export const CarritoProvider = ({children}) => {
     }
 
     return (
-        <CarritoContext.Provider value={{carrito, total, cantidadTotal, agregarAlCarrito, eliminarProducto, vaciarCarrito}}>
+        <CarritoContext.Provider value={{ carrito, total, cantidadTotal, agregarAlCarrito, eliminarProducto, vaciarCarrito }}>
             {children}
         </CarritoContext.Provider>
     )
 }
 
-//En el value enviamos el valor actual del carrito, los items, el total de la compra y las funciones de agregar, eliminar y vaciar carrito.

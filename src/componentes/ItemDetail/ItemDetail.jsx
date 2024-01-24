@@ -2,29 +2,16 @@ import { useState } from 'react';
 import Contador from '../Contador/Contador';
 import { Link } from 'react-router-dom';
 import './ItemDetail.css';
-
-//importamos el CarritoContext
 import { CarritoContext } from '../context/CarritoContext';
-
-// importamos el hook useContext
 import { useContext } from 'react';
 
 
 const ItemDetail = ({id, nombre, stock, precio,img}) => {
-    //Creamos un estado local con la cantidad de productos agregados
     const [agregarCantidad, setAgregarCantidad] = useState(0);
-
-    //Cambios en la clase 6:
-
     const {agregarAlCarrito} = useContext(CarritoContext);
 
-    //
-
-    //Creamos una funcion manejadora de la cantidad
     const manejadorCantidad = (cantidad) => {
         setAgregarCantidad(cantidad)
-        // console.log("Productos agregados: " + cantidad);
-        //Aca voy a crear un objeto con el item y la cantidad:
         const item = {id, nombre, precio};
         agregarAlCarrito(item, cantidad);
     }

@@ -5,10 +5,11 @@ import './NavBar.css';
 
 
 const NavBar = () => {
+
     return (
         <header>
             <Link to="/">
-                <h1>Tienda Marolio</h1>
+                <img className='imgLogo' src = "http://marolio.com/sites/all/themes/theme1043/logo.png" alt="Logo Marolio" />
             </Link>
 
             <nav>

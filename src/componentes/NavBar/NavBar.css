@@ -16,3 +16,7 @@ li a {
     text-transform: uppercase;
     color: black;
 }
+
+.imgLogo {
+    width: 150px;
+}
