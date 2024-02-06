@@ -20,7 +20,7 @@ const ItemListContainer = () => {
             })
             setProductos(nuevosProductos);
         })
-        .catch(error => console.log("Error, nos van a despedir", error))
+        .catch(error => console.log("Error", error))
     }, [idCategoria])
 
     return (

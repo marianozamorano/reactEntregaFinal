@@ -9,16 +9,16 @@ const NavBar = () => {
     return (
         <header>
             <Link to="/">
-                <img className='imgLogo' src = "http://marolio.com/sites/all/themes/theme1043/logo.png" alt="Logo Marolio" />
+                <img className='imgLogo' src = "https://img.freepik.com/vector-premium/logotipo-tienda-digital-o-logotipo-productos-electronicos-o-logotipo-comercio-electronico_372882-55.jpg?w=826" alt="Logo Digital Store" />
             </Link>
 
             <nav>
                 <ul>
                     <li>
-                        <NavLink to="categoria/2">Lacteos</NavLink>
+                        <NavLink to="categoria/2">Notebook</NavLink>
                     </li>
                     <li>
-                        <NavLink to="categoria/3">Almacen</NavLink>
+                        <NavLink to="categoria/3">Celulares</NavLink>
                     </li>
                     
                 </ul>
