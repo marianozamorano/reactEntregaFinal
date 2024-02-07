@@ -20,6 +20,9 @@ const NavBar = () => {
                     <li>
                         <NavLink to="categoria/3">Celulares</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="categoria/4">Teclado y Mouse</NavLink>
+                    </li>
                     
                 </ul>
             </nav>
