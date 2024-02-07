@@ -1,6 +1,6 @@
-# Tienda Marolio
+# Digital Store
 
-Este es un proyecto de ecommerce básico que se utiliza para el curso de React en Coderhouse. La aplicación me permite ver una lista de productos de supermercado y realizar compras en linea. Los productos y las órdenes de compra se almacenan en Firebase.
+Este es un proyecto de ecommerce básico que se utiliza para el curso de React en Coderhouse. La aplicación me permite ver una lista de productos de una tienda de electronica y realizar compras en linea. Los productos y las órdenes de compra se almacenan en Firebase.
 
 ## Tecnologías utilizadas
 
